@@ -1,6 +1,5 @@
 package com.quitevis.algorithms.sort;
 
-import java.util.Arrays;
 
 /**
  * Insert to proper position until i <= i + 1 
@@ -13,15 +12,12 @@ import java.util.Arrays;
  */
 public class InsertionSort implements SortBase {
     public void sort(int[] input) {
-        int compareCount = 0;
         for (int x = 0; x < input.length; ++x) {
             for (int y = x; y > 0; --y) {
-                compareCount++;
                 if (input[y] < input[y - 1]) {
                     int swap = input[y];
                     input[y] = input[y - 1];
                     input[y - 1] = swap;
-                    System.out.println(Arrays.toString(input));
                 }
                 else {
                     break;

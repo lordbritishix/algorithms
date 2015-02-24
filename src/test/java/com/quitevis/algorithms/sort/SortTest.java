@@ -1,74 +1,86 @@
 package com.quitevis.algorithms.sort;
 
 import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.google.common.collect.Lists;
+
 public class SortTest {
-    private static SortBase sort;
+    private static List<SortBase> sorters = Lists.newArrayList();
     
     @BeforeClass
     public static void beforeAllTests() {
-        sort = new ShellSort();
+        sorters.add(new InsertionSort());
+        sorters.add(new SelectionSort());
+        sorters.add(new ShellSort());
+        sorters.add(new MergeSort());
+        sorters.add(new BottomUpMergeSort());
     }
     
     @Test
-    public void testExam() {
-        int[] input = new int[] {53, 37, 29, 56, 97, 75, 26, 42, 35, 67};
-        sort.sort(input);
-
+    public void test() {
+        QuickSort s = new QuickSort();
+        int[] input = new int[]{5, 1, 2, 77, 3, 2, 0, 25, 32};
+        s.partition(input, 0, 8);
     }
-    
-    @Test
-    public void testExam2() {
-        int[] input = new int[] {48, 63, 91, 45, 66, 11, 47, 20, 39, 98};
-        sort.sort(input);
-    }
-
     
     @Test
     public void testSortWithRandomUnsortedElements() {
-        int[] input = new int[] {5, 2, 55, 23, 21, 65, 1, 0};
-        sort.sort(input);
-        assertThat(Arrays.toString(input), is("[0, 1, 2, 5, 21, 23, 55, 65]"));
+        for (SortBase sort : sorters) {
+            int[] input = new int[] {5, 2, 55, 23, 21, 65, 1, 0};
+            sort.sort(input);
+            assertThat(Arrays.toString(input), is("[0, 1, 2, 5, 21, 23, 55, 65]"));
+        }
     }
     
     @Test
     public void testSortWithOneElement() {
-        int[] input = new int[] {0};
-        sort.sort(input);
-        assertThat(Arrays.toString(input), is("[0]"));
+        for (SortBase sort : sorters) {
+            int[] input = new int[] {0};
+            sort.sort(input);
+            assertThat(Arrays.toString(input), is("[0]"));
+        }
     }
 
     @Test
     public void testSortWithNoElement() {
-        int[] input = new int[] {};
-        sort.sort(input);
-        assertThat(Arrays.toString(input), is("[]"));
+        for (SortBase sort : sorters) {
+            int[] input = new int[] {};
+            sort.sort(input);
+            assertThat(Arrays.toString(input), is("[]"));
+        }
     }
 
     @Test
     public void testSortWithSortedElements() {
-        int[] input = new int[] {1, 2, 3, 4, 5};
-        sort.sort(input);
-        assertThat(Arrays.toString(input), is("[1, 2, 3, 4, 5]"));
+        for (SortBase sort : sorters) {
+            int[] input = new int[] {1, 2, 3, 4, 5};
+            sort.sort(input);
+            assertThat(Arrays.toString(input), is("[1, 2, 3, 4, 5]"));
+        }
     }
 
     @Test
     public void testSortWithDescendingElements() {
-        int[] input = new int[] {5, 4, 3, 2, 1};
-        sort.sort(input);
-        assertThat(Arrays.toString(input), is("[1, 2, 3, 4, 5]"));
+        for (SortBase sort : sorters) {        
+            int[] input = new int[] {5, 4, 3, 2, 1};
+            sort.sort(input);
+            assertThat(Arrays.toString(input), is("[1, 2, 3, 4, 5]"));
+        }
     }
 
     @Test
     public void testSortWithPartiallySortedArray() {
-        int[] input = new int[] {1, 1, 1, 1, 1, 0, 0, 0, 0, 0};
-        sort.sort(input);
-        assertThat(Arrays.toString(input), is("[0, 0, 0, 0, 0, 1, 1, 1, 1, 1]"));
+        for (SortBase sort : sorters) {        
+            int[] input = new int[] {1, 1, 1, 1, 1, 0, 0, 0, 0, 0};
+            sort.sort(input);
+            assertThat(Arrays.toString(input), is("[0, 0, 0, 0, 0, 1, 1, 1, 1, 1]"));
+        }
     }
-
 }

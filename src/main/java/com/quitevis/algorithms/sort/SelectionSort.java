@@ -1,6 +1,5 @@
 package com.quitevis.algorithms.sort;
 
-import java.util.Arrays;
 
 /**
  * 1. Find the smallest on the sub-array
@@ -24,8 +23,6 @@ public class SelectionSort implements SortBase {
             int swap = input[x];
             input[x] = input[minIdx];
             input[minIdx] = swap;
-            
-            System.out.println(Arrays.toString(input));
         }
     }
 }
