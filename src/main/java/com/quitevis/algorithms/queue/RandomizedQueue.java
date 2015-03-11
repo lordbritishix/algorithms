@@ -9,7 +9,8 @@ import edu.princeton.cs.introcs.StdRandom;
  * Randomized Queue using a resizing array as backend
  * 
  * Array size doubles if limit is reached
- * Array size is halved if number of items are quarter of the array to avoid thrashing
+ * Array size is halved if number of items are quarter of the array 
+ * to avoid thrashing
  * 
  * @author lordbritishix
  *

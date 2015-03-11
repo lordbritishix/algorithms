@@ -4,8 +4,9 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 /**
- * Double-ended queue using a Doubly-linked list as backend to achieve O(c) performance 
- * for operations that add and remove elements at the beginning and end of the queue 
+ * Double-ended queue using a Doubly-linked list as backend to 
+ * achieve O(c) performance for operations that add and remove elements 
+ * at the beginning and end of the queue 
  * 
  * @author lordbritishix
  *

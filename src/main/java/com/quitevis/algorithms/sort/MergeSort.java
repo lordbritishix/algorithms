@@ -15,7 +15,7 @@ import org.slf4j.Logger;
  *
  */
 public class MergeSort extends MergeSortBase {
-    Logger log = org.slf4j.LoggerFactory.getLogger(MergeSort.class);
+    private Logger log = org.slf4j.LoggerFactory.getLogger(MergeSort.class);
     
     public void sort(int[] input) {
         int[] aux = new int[input.length];

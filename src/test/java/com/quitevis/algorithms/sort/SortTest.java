@@ -21,13 +21,14 @@ public class SortTest {
         sorters.add(new ShellSort());
         sorters.add(new MergeSort());
         sorters.add(new BottomUpMergeSort());
+        sorters.add(new QuickSort());
     }
     
     @Test
     public void test() {
         QuickSort s = new QuickSort();
-        int[] input = new int[]{5, 1, 2, 77, 3, 2, 0, 25, 32};
-        s.partition(input, 0, 8);
+        int[] input = new int[]{0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1};
+        s.sort(input);
     }
     
     @Test

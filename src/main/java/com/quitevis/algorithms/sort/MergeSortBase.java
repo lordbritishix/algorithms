@@ -19,17 +19,20 @@ public abstract class MergeSortBase implements SortBase {
         int j = mid + 1;
         
         for (int x = lo; x <= hi; ++x) {
-            //If the left subarray has been already merged, then merge the rest of the right subarray
+            //If the left subarray has been already merged, 
+            //then merge the rest of the right subarray
             if (i > mid) {
                 data[x] = aux[j];
                 j++;
             }
-            //If the right subarray has been already merged, then merge the rest of the left subarray
+            //If the right subarray has been already merged, 
+            //then merge the rest of the left subarray
             else if (j > hi) {
                 data[x] = aux[i];
                 i++;
             }
-            //Merge to data[x] whichever is smaller between between the element on the left (aux[i] or the right [aux[j] subarray
+            //Merge to data[x] whichever is smaller between between the element 
+            //on the left (aux[i] or the right [aux[j] subarray
             else if (aux[i] > aux[j]) {
                 data[x] = aux[j];
                 j++;
