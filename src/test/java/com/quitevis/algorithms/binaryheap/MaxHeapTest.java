@@ -112,7 +112,6 @@ public class MaxHeapTest {
     public void testPopAndInsertReturnsNextMaxAtTop() {
         MaxHeap heap = new MaxHeap(10);
         
-        
         heap.insert(1);
         heap.insert(2);
         
@@ -125,47 +124,4 @@ public class MaxHeapTest {
         heap.pop();
         assertThat(heap.peek(), is(1));
     }
-
-    @Test
-    public void test() {
-        MaxHeap heap = new MaxHeap(20);
-        
-        heap.insert(94);
-        heap.insert(91);
-        heap.insert(86);
-        heap.insert(69);
-        heap.insert(62);
-        heap.insert(85);
-        heap.insert(49);
-        heap.insert(13);
-        heap.insert(58);
-        heap.insert(16);
-        
-        heap.insert(83);
-        heap.insert(45);
-        heap.insert(44);
-        
-    }
-    
-    @Test
-    public void test2() {
-        MaxHeap heap = new MaxHeap(20);
-        
-        heap.insert(93);
-        heap.insert(88);
-        heap.insert(76);
-        heap.insert(38);
-        heap.insert(65);
-        heap.insert(17);
-        heap.insert(68);
-        heap.insert(16);
-        heap.insert(36);
-        heap.insert(62);
-        
-        heap.pop();
-        heap.pop();
-        heap.pop();
-        
-    }
-
 }

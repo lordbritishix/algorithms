@@ -8,58 +8,48 @@ public class MaxHeap extends BinaryHeap {
     
     @Override
     public void swim(int k) {
+        //k/2 is the parent of k
         while ((k != 1) && (k / 2) != 0) {
+            //if parent (k/2) is less than child (k), swap parent and child 
             if (getData(k / 2) < getData(k)) {
                 int swap = getData(k / 2);
                 setData(k / 2, getData(k));
                 setData(k, swap);
             }
             
+            //point k to the parent and swim this up
             k = k / 2;
         }
     }
 
     @Override
     public void sink(int k) {
-        int current = k;
-        int next = 2 * current + 1;
-        
-        if (getCurrentSize() == 1) {
-            setData(1, getData(getCurrentSize()));
-            return;
+        //k is parent
+        //2*k is left child
+        //2*k+1 is right child
+        while (2*k <= getCurrentSize()) {
+             int j = 2*k;
+             
+             //if right child is greater than left child, 
+             //then point j to the right child, otherwise, have it remain at the left child
+             if ((j < getCurrentSize()) && (getData(j) < getData(j+1))) {
+                 j++;
+             }
+             
+             //if parent is greater than or equal to the selected child, 
+             //then terminate the loop - we do not need the swap 
+             if (getData(k) >= getData(j)) {
+                 break;
+             }
+             
+             //Else, swap the parent with the selected child
+             int swap = getData(k);
+             setData(k, getData(j));
+             setData(j, swap);
+             
+             //and move the pointer (k) to the selected child and
+             //sink it down
+             k = j;
         }
-
-        if (getCurrentSize() == 2) {
-            if (getData(1) < getData(2)) {
-                int swap = getData(1);
-                setData(1, getData(2));
-                setData(2, swap); 
-                current = next;
-            }
-            
-            return;
-        }
-
-        
-        do {
-            if ((getData(current) >= getData(next)) && (getData(current) >= getData(next - 1))) {
-                break;
-            }
-            
-            if (getData(next) > getData(next - 1)) {
-                int swap = getData(next);
-                setData(next, getData(current));
-                setData(current, swap); 
-                current = next;
-            }
-            else {
-                int swap = getData(next - 1);
-                setData(next - 1, getData(current));
-                setData(current, swap); 
-                current = next - 1;
-            }
-            
-            next = 2 * current + 1; 
-        } while (next < getCurrentSize());
     }
 }

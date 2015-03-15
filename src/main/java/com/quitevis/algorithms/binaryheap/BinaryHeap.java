@@ -1,8 +1,14 @@
 package com.quitevis.algorithms.binaryheap;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public abstract class BinaryHeap {
+    Logger log = LoggerFactory.getLogger(BinaryHeap.class);
+    
     //Binary tree, represented as an array
     private Integer[] data;
     private int ctr = 0;
@@ -32,6 +38,8 @@ public abstract class BinaryHeap {
         data[++ctr] = value;
         
         swim(ctr);
+        
+        log.trace(Arrays.toString(data));
     }
     
     public int pop() throws NoSuchElementException {
@@ -47,6 +55,8 @@ public abstract class BinaryHeap {
         
         sink(1);
         
+        log.trace(Arrays.toString(data));
+
         return rootValue;
     }
     
