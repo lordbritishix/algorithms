@@ -9,7 +9,7 @@ public class MaxHeap extends BinaryHeap {
     @Override
     public void swim(int k) {
         //k/2 is the parent of k
-        while ((k != 1) && (k / 2) != 0) {
+        while (k != 1) {
             //if parent (k/2) is less than child (k), swap parent and child 
             if (getData(k / 2) < getData(k)) {
                 int swap = getData(k / 2);
