@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class MaxHeapTest {
-    Logger log = LoggerFactory.getLogger(MaxHeap.class);
+    Logger log = LoggerFactory.getLogger(MaxHeapTest.class);
     
     @Before
     public void beforeEachTests() {

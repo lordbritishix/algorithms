@@ -10,8 +10,8 @@ public class Percolation {
     private final WeightedQuickUnionUF unionFind;
     private final WeightedQuickUnionUF unionFind2;
 
-    private int OFFSET_2 = 2;
-    private int OFFSET_1 = 1;
+    private static final int OFFSET_2 = 2;
+    private static final int OFFSET_1 = 1;
 
     // create N-by-N grid, with all sites blocked
     public Percolation(int n) {
