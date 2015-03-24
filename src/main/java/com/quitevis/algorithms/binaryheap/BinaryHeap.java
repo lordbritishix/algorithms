@@ -7,11 +7,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public abstract class BinaryHeap {
-    Logger log = LoggerFactory.getLogger(BinaryHeap.class);
+    private Logger log = LoggerFactory.getLogger(BinaryHeap.class);
     
     //Binary tree, represented as an array
-    private Integer[] data;
+    private final int[] data;
     private int ctr = 0;
+    
+    public BinaryHeap(int size) {
+        //Starts at index 1 to simplify index arithmetic
+        data = new int[size + 1];
+    }
     
     public int getData(int index) {
         return data[index];
@@ -23,11 +28,6 @@ public abstract class BinaryHeap {
     
     public int getSize() {
         return data.length;
-    }
-    
-    public BinaryHeap(int size) {
-        //Starts at index 1 to simplify index arithmetic
-        data = new Integer[size + 1];
     }
     
     public void insert(int value) {
@@ -42,7 +42,7 @@ public abstract class BinaryHeap {
         log.trace(Arrays.toString(data));
     }
     
-    public int pop() throws NoSuchElementException {
+    public int pop() {
         if (ctr <= 0) {
             throw new NoSuchElementException();
         }
@@ -50,7 +50,7 @@ public abstract class BinaryHeap {
         int rootValue = data[1];
 
         data[1] = data[ctr];
-        data[ctr] = null;
+        data[ctr] = 0;
         ctr--;
         
         sink(1);

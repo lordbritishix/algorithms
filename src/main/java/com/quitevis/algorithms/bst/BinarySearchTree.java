@@ -9,7 +9,7 @@ package com.quitevis.algorithms.bst;
  *
  */
 public class BinarySearchTree {
-    public Node root;
+    private Node root;
     
     /**
      * Cases
