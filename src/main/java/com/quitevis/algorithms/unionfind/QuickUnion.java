@@ -2,13 +2,12 @@ package com.quitevis.algorithms.unionfind;
 
 /**
  * Lazy approach
- * 
+ * <p/>
  * Relies on parent-child relationship between nodes
- * 
+ * <p/>
  * isConnected = O(n) isConnected = O(n)
- * 
- * @author lordbritishix
  *
+ * @author lordbritishix
  */
 public class QuickUnion extends UnionFindBase {
     private int[] size;
@@ -28,7 +27,7 @@ public class QuickUnion extends UnionFindBase {
 
     /**
      * Root is found if node == getValue(node)
-     * 
+     *
      * @param node
      * @return
      */
@@ -43,7 +42,7 @@ public class QuickUnion extends UnionFindBase {
 
     /**
      * If node a and node b has the same parent, they are connected
-     * 
+     *
      * @param a
      * @param b
      * @return
@@ -55,7 +54,7 @@ public class QuickUnion extends UnionFindBase {
 
     /**
      * Set node a's parent to node b
-     * 
+     *
      * @param a
      * @param b
      */

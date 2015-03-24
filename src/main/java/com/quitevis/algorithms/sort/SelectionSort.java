@@ -4,9 +4,9 @@ package com.quitevis.algorithms.sort;
 /**
  * 1. Find the smallest on the sub-array
  * 2. Swap
- * 
+ * <p/>
  * Performance is (n^2) / 2
- * 
+ *
  * @author lordbritishix
  */
 public class SelectionSort implements SortBase {
@@ -19,7 +19,7 @@ public class SelectionSort implements SortBase {
                     minIdx = y;
                 }
             }
-            
+
             int swap = input[x];
             input[x] = input[minIdx];
             input[minIdx] = swap;

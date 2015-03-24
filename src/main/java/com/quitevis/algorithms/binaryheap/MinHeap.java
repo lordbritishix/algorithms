@@ -16,8 +16,7 @@ public class MinHeap extends BinaryHeap {
                 setData(parent, getData(parent / 2));
                 setData(parent / 2, swap);
                 parent = parent / 2;
-            }
-            else {
+            } else {
                 break;
             }
         }
@@ -29,22 +28,22 @@ public class MinHeap extends BinaryHeap {
     @Override
     public void sink(int k) {
         int parent = k;
-        int j = 2*parent;
+        int j = 2 * parent;
         while (j <= getCurrentSize()) {
             if ((j < getCurrentSize()) && (getData(j) > getData(j + 1))) {
                 j++;
             }
-            
+
             if (getData(parent) < getData(j)) {
                 break;
             }
-            
+
             int swap = getData(parent);
             setData(parent, getData(j));
             setData(j, swap);
-            
+
             parent = j;
-            j = 2*parent;
+            j = 2 * parent;
         }
     }
 

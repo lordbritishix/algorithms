@@ -14,10 +14,10 @@ public abstract class MergeSortBase implements SortBase {
 
         //left subarray (aux[i])
         int i = lo;
-        
+
         //right subarray (aux[j])
         int j = mid + 1;
-        
+
         for (int x = lo; x <= hi; ++x) {
             //If the left subarray has been already merged, 
             //then merge the rest of the right subarray
@@ -36,8 +36,7 @@ public abstract class MergeSortBase implements SortBase {
             else if (aux[i] > aux[j]) {
                 data[x] = aux[j];
                 j++;
-            }
-            else {
+            } else {
                 data[x] = aux[i];
                 i++;
             }
