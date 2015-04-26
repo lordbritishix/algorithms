@@ -14,9 +14,8 @@ import edu.princeton.cs.algs4.Queue;
  * Data structure where:
  * 1. Left Node is less than Parent Node
  * 2. Right Node is greater than Parent Node
- * 
- * @author lordbritishix
  *
+ * @author lordbritishix
  */
 public class BinarySearchTree {
     private Logger log = LoggerFactory.getLogger(BinarySearchTree.class);
@@ -27,7 +26,7 @@ public class BinarySearchTree {
      * 1. If value is equal, do nothing
      * 2. If value is less than parent, left
      * 3. If value is greater than parent, right
-     * 
+     *
      * @param value
      */
     public void insert(int value) {
@@ -150,7 +149,7 @@ public class BinarySearchTree {
             }
         }
     }
-    
+
     @Override
     public String toString() {
         //Performs in-order traversal to output a sorted list

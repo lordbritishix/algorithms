@@ -2,11 +2,10 @@ package com.quitevis.algorithms.unionfind;
 
 /**
  * Eager approach
- * 
+ * <p/>
  * isConnected = O(1) union = O(n)
- * 
- * @author lordbritishix
  *
+ * @author lordbritishix
  */
 public class QuickFind extends UnionFindBase {
     public QuickFind(int n) {

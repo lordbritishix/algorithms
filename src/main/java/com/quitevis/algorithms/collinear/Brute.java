@@ -1,9 +1,9 @@
 package com.quitevis.algorithms.collinear;
 
-import java.util.Arrays;
-
 import edu.princeton.cs.introcs.In;
 import edu.princeton.cs.introcs.StdDraw;
+
+import java.util.Arrays;
 
 public class Brute {
     public static void main(String[] args) {
@@ -17,9 +17,9 @@ public class Brute {
             points[x] = new Point(in.readInt(), in.readInt());
             points[x].draw();
         }
-        
+
         Arrays.sort(points);
-        
+
         for (int a = 0; a < points.length; ++a) {
             for (int b = a + 1; b < points.length; ++b) {
                 for (int c = b + 1; c < points.length; ++c) {
@@ -29,17 +29,17 @@ public class Brute {
                         double slope3 = points[a].slopeTo(points[d]);
                         if ((slope1 == slope2) && (slope2 == slope3)) {
                             points[a].drawTo(points[d]);
-                            System.out.println(points[a].toString() + " -> " 
-                                                + points[b].toString() + " -> " 
-                                                + points[c].toString() + " -> " 
-                                                + points[d].toString());
+                            System.out.println(points[a].toString() + " -> "
+                                    + points[b].toString() + " -> "
+                                    + points[c].toString() + " -> "
+                                    + points[d].toString());
                         }
                     }
-                    
+
                 }
-                
+
             }
-            
+
         }
         // display to screen all at once
         StdDraw.show(0);

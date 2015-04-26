@@ -1,10 +1,10 @@
 package com.quitevis.algorithms.binaryheap;
 
-import java.util.Arrays;
-import java.util.NoSuchElementException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.Arrays;
+import java.util.NoSuchElementException;
 
 public abstract class BinaryHeap {
     private Logger log = LoggerFactory.getLogger(BinaryHeap.class);
@@ -74,6 +74,27 @@ public abstract class BinaryHeap {
 
     public int getCurrentSize() {
         return ctr;
+    }
+
+    @Override
+    public String toString() {
+        StringBuffer ret = new StringBuffer("\n");
+        int row = 1;
+        int rowCtr = 0;
+        for (int x = 1; x < ctr; ++x) {
+            ret.append(data[x]);
+            ret.append(",");
+
+            rowCtr++;
+
+            if (rowCtr == row) {
+                rowCtr = 0;
+                row *= 2;
+                ret.append("\n");
+            }
+        }
+
+        return ret.toString();
     }
 
     /**

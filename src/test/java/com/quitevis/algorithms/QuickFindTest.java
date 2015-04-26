@@ -1,12 +1,12 @@
 package com.quitevis.algorithms;
 
+import com.quitevis.algorithms.unionfind.QuickFind;
+import com.quitevis.algorithms.unionfind.UnionFindBase;
+import org.junit.Test;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-import org.junit.Test;
-
-import com.quitevis.algorithms.unionfind.QuickFind;
-import com.quitevis.algorithms.unionfind.UnionFindBase;
 /**
  * Unit test for simple App.
  */

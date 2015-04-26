@@ -1,11 +1,10 @@
 package com.quitevis.algorithms;
 
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-
+import com.quitevis.algorithms.unionfind.QuickUnion;
 import org.junit.Test;
 
-import com.quitevis.algorithms.unionfind.QuickUnion;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
 
 public class QuickUnionTest {
     private QuickUnion unionFind;

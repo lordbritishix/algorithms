@@ -5,7 +5,7 @@ public class MaxHeap extends BinaryHeap {
     public MaxHeap(int size) {
         super(size);
     }
-    
+
     @Override
     public void swim(int k) {
         int current = k;
@@ -17,7 +17,7 @@ public class MaxHeap extends BinaryHeap {
                 setData(current / 2, getData(current));
                 setData(current, swap);
             }
-            
+
             //point k to the parent and swim this up
             current = current / 2;
         }

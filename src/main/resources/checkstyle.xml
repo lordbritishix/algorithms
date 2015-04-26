@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE module PUBLIC
-    "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
-    "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+        "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
 
 
 <module name="Checker">
@@ -15,11 +15,11 @@
     <module name="FileTabCharacter">
         <property name="eachLine" value="false"/>
     </module>
-        
+
 
     <!-- Checks that no file is more than 1500 lines long. -->
     <module name="FileLength">
-      <property name="max" value="1500"/>
+        <property name="max" value="1500"/>
     </module>
     <module name="SuppressionCommentFilter"/>
 
@@ -36,10 +36,10 @@
         <!-- http://checkstyle.sourceforge.net/config_annotation.html                    -->
         <!-- =========================================================================== -->
         <module name="SuppressWarnings">
-           <property name="format"
-               value="^unchecked$|^unused$"/>
-           <property name="tokens"
-              value="
+            <property name="format"
+                      value="^unchecked$|^unused$"/>
+            <property name="tokens"
+                      value="
               CLASS_DEF,INTERFACE_DEF,ENUM_DEF,
               ANNOTATION_DEF,ANNOTATION_FIELD_DEF,
               ENUM_CONSTANT_DEF,METHOD_DEF,CTOR_DEF,
@@ -75,21 +75,21 @@
         <!-- =========================================================================== -->
         <module name="AvoidInlineConditionals"/>
         <module name="CovariantEquals"/>
-<!--    <module name="DoubleCheckedLocking"/>  NO LONGER AVAILABLE IN CHECKSTYLE 5.6 -->
+        <!--    <module name="DoubleCheckedLocking"/>  NO LONGER AVAILABLE IN CHECKSTYLE 5.6 -->
         <module name="EmptyStatement"/>
-<!--        <module name="EqualsHashCode"/> -->
+        <!--        <module name="EqualsHashCode"/> -->
         <module name="HiddenField">
             <property name="ignoreConstructorParameter" value="true"/>
         </module>
         <module name="IllegalInstantiation"/>
         <module name="InnerAssignment"/>
-<!--
-        <module name="MagicNumber">
-            <property name="tokens" value="NUM_DOUBLE, NUM_FLOAT, NUM_INT, NUM_LONG"/>
-            <property name="ignoreNumbers" value="-1, 0, 0.5, 1, 2"/>
-        </module>
-        <module name="MissingSwitchDefault"/>
--->
+        <!--
+                <module name="MagicNumber">
+                    <property name="tokens" value="NUM_DOUBLE, NUM_FLOAT, NUM_INT, NUM_LONG"/>
+                    <property name="ignoreNumbers" value="-1, 0, 0.5, 1, 2"/>
+                </module>
+                <module name="MissingSwitchDefault"/>
+        -->
         <module name="ModifiedControlVariable"/>
         <module name="RedundantThrows"/>
         <module name="SimplifyBooleanExpression"/>
@@ -115,17 +115,17 @@
 
         <!-- Don't allow variables to be declared of wrapper types -->
         <module name="IllegalType">
-            <property name="illegalClassNames" value="java.lang.Boolean, java.lang.Integer, java.lang.Double, java.lang.Float, java.lang.Character, java.lang.Long, java.lang.Short, java.lang.Byte, java.lang.Class"/>
+            <property name="illegalClassNames"
+                      value="java.lang.Boolean, java.lang.Integer, java.lang.Double, java.lang.Float, java.lang.Character, java.lang.Long, java.lang.Short, java.lang.Byte, java.lang.Class"/>
         </module>
 
         <module name="DeclarationOrder"/>
         <module name="ParameterAssignment"/>
         <module name="DefaultComesLast"/>
         <module name="FallThrough">
-           <property name="reliefPattern" value="continue in next case"/>
+            <property name="reliefPattern" value="continue in next case"/>
         </module>
         <module name="OneStatementPerLine"/>
-
 
 
         <!-- =========================================================================== -->
@@ -207,10 +207,10 @@
             <property name="format" value="^[a-z][a-zA-Z0-9]*$|^[A-Z][A-Z_0-9]*$"/>
         </module>
 
-       <module name="MethodName"> 
+        <module name="MethodName">
             <property name="format" value="^[a-z][a-zA-Z0-9]*$|^[A-Z][A-Z_0-9]*$"/>
         </module>
-        
+
         <module name="PackageName">
             <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
         </module>
@@ -218,7 +218,7 @@
         <module name="ParameterName">
             <property name="format" value="^[a-z][a-zA-Z0-9]*$|^[A-Z]$"/>
         </module>
-        <module name="StaticVariableName"> 
+        <module name="StaticVariableName">
             <property name="format" value="^[a-z][a-zA-Z0-9]*$|^[A-Z][A-Z_0-9]*$"/>
         </module>
         <module name="TypeName"/>
@@ -247,7 +247,7 @@
             <property name="ignoreComments" value="true"/>
             <property name="message" value="Use x*x*x instead of Math.pow(x, 3)"/>
         </module>
-        
+
 
         <!-- =========================================================================== -->
         <!-- Size violations                                                             -->
@@ -275,18 +275,18 @@
         <module name="EmptyForIteratorPad"/>
         <module name="MethodParamPad"/>
         <module name="NoWhitespaceAfter">
-           <property name="tokens" value="BNOT, DEC, DOT, INC, LNOT, UNARY_MINUS, UNARY_PLUS"/>
-         </module>
+            <property name="tokens" value="BNOT, DEC, DOT, INC, LNOT, UNARY_MINUS, UNARY_PLUS"/>
+        </module>
         <module name="NoWhitespaceBefore"/>
         <module name="OperatorWrap"/>
         <module name="ParenPad"/>
         <module name="TypecastParenPad"/>
         <module name="WhitespaceAfter"/>
         <module name="WhitespaceAround">
-           <!-- removed PLUS, MINUS, STAR, DIV -->
-           <!-- removed GENERIC_START, GENERIC_END -->
-           <property name="tokens"
-            value="ASSIGN, BAND, BAND_ASSIGN, BOR, BOR_ASSIGN, BSR, 
+            <!-- removed PLUS, MINUS, STAR, DIV -->
+            <!-- removed GENERIC_START, GENERIC_END -->
+            <property name="tokens"
+                      value="ASSIGN, BAND, BAND_ASSIGN, BOR, BOR_ASSIGN, BSR,
                    BSR_ASSIGN, BXOR, BXOR_ASSIGN, COLON,  DIV_ASSIGN,
                    EQUAL, GE, GT, LAND, LCURLY, LE, LITERAL_ASSERT,
                    LITERAL_CATCH, LITERAL_DO, LITERAL_ELSE, LITERAL_FINALLY,
@@ -296,7 +296,6 @@
                    SL, SLIST, SL_ASSIGN, SR, SR_ASSIGN, STAR_ASSIGN,
                    TYPE_EXTENSION_AND, WILDCARD_TYPE"/>
         </module>
-
 
 
     </module>

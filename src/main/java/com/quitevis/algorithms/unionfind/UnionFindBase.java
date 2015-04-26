@@ -45,17 +45,16 @@ public abstract class UnionFindBase {
 
     /**
      * Checks if a and b are connected components
-     * 
+     *
      * @param a
      * @param b
-     * 
      * @return true if a and b are connected components
      */
     public abstract boolean isConnected(int a, int b);
 
     /**
      * Connects node a to node b
-     * 
+     *
      * @param a
      * @param b
      */
