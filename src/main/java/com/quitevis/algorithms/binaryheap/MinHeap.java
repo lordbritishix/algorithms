@@ -9,14 +9,15 @@ public class MinHeap extends BinaryHeap {
     //k / 2 is parent of the child node
     @Override
     public void swim(int k) {
-        while (k != 1) {
-            if (getData(k) < getData(k / 2)) {
-                int swap = getData(k);
-                setData(k, getData(k / 2));
-                setData(k / 2, swap);
-                k = k / 2;
-            }
-            else {
+        int current = k;
+
+        while (current != 1) {
+            if (getData(current) < getData(current / 2)) {
+                int swap = getData(current);
+                setData(current, getData(current / 2));
+                setData(current / 2, swap);
+                current = current / 2;
+            } else {
                 break;
             }
         }
@@ -27,22 +28,23 @@ public class MinHeap extends BinaryHeap {
     //2k+1 is right node
     @Override
     public void sink(int k) {
-        int j = 2*k;
+        int current = k;
+        int j = 2 * current;
         while (j <= getCurrentSize()) {
             if ((j < getCurrentSize()) && (getData(j) > getData(j + 1))) {
                 j++;
             }
-            
-            if (getData(k) < getData(j)) {
+
+            if (getData(current) < getData(j)) {
                 break;
             }
-            
-            int swap = getData(k);
-            setData(k, getData(j));
+
+            int swap = getData(current);
+            setData(current, getData(j));
             setData(j, swap);
-            
-            k = j;
-            j = 2*k;
+
+            current = j;
+            j = 2 * current;
         }
     }
 
