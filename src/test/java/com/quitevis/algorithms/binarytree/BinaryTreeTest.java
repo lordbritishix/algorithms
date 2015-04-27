@@ -90,4 +90,22 @@ public class BinaryTreeTest {
         assertThat(result.toString(), is("[]"));
     }
 
+    @Test
+    public void getPathWithMaximumResultReturnsCorrectResultForOneBranch() {
+        Node parent = new Node(0);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+
+        parent.left = node1;
+        node1.right = node2;
+        node2.left = node3;
+
+
+        List<Node> result = tree.getPathWithMaxSum(parent);
+
+        String path = Arrays.toString(result.toArray());
+        assertThat(path, is("[0, 1, 2, 3]"));
+    }
+
 }
