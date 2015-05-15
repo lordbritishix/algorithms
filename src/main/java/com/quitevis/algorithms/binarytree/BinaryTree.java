@@ -4,7 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Various binary tree algorithms
@@ -15,10 +17,98 @@ public class BinaryTree {
     private Logger log = LoggerFactory.getLogger(BinaryTree.class);
 
     public List<Node> getPathWithMaxSum(Node node) {
-        List<Node> result = new ArrayList<Node>();
+        List<Node> result = new ArrayList<>();
         getPathWithMaxSum(node, new ArrayList<Node>(), result, 0);
 
         return result;
+    }
+
+    public List<Node> getPath(Node root, Node target) {
+        List<Node> result = new ArrayList<>();
+        getPath(root, target, result);
+
+        return result;
+    }
+
+    /**
+     * max(parent, max(left, right))
+     */
+    public int getMax(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int left = getMax(root.left);
+        int right = getMax(root.right);
+
+        return Math.max(root.value, Math.max(left, right));
+    }
+
+    public int getHeight(Node root) {
+        if (root == null) {
+            return 0;
+        }
+
+        return 1 + Math.max(getHeight(root.left), getHeight(root.right));
+    }
+
+    /**
+     * Gets the immediate ancestor between two nodes
+     * 1. Find the path from root to node1 and node2
+     * 2. Store path 1 to hash table
+     * 3. Check if any of node2's node in path is present in path 1. If it is, that's the common ancestor
+     */
+    public Node getCommonAncestor(Node root, Node node1, Node node2) {
+        Map<Node, Integer> node1Path = new HashMap<>();
+
+        List<Node> path1 = getPath(root, node1);
+        List<Node> path2 = getPath(root, node2);
+
+        for (Node node : path1) {
+            node1Path.put(node, node.value);
+        }
+
+        for (Node node : path2) {
+            if (node1Path.containsKey(node)) {
+                return node;
+            }
+        }
+
+        return root;
+    }
+
+    /**
+     * Gets the path from root to target
+     * It works by performing pre-order traversal on the tree
+     * If the node is found, true is returned and the nodes on that
+     * call stack gets added to the path
+     */
+    private boolean getPath(Node root, Node target, List<Node> path) {
+        if (root == null) {
+            return false;
+        }
+
+        //If found, return true
+        if (root == target) {
+            log.trace("Found path");
+            log.trace("Adding to path: {}", root.value);
+
+            path.add(root);
+            return true;
+        }
+
+        boolean retLeft = getPath(root.left, target, path);
+        boolean retRight = getPath(root.right, target, path);
+
+        //If found, always return true and add to path
+        if (retLeft || retRight ) {
+            log.trace("Adding to path: {}", root.value);
+
+            path.add(root);
+            return true;
+        }
+
+        return false;
     }
 
     /**
