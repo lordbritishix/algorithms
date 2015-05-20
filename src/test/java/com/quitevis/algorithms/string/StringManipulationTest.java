@@ -53,8 +53,13 @@ public class StringManipulationTest {
         assertThat(stringUtils.isAnagram("", ""), is(true));
         assertThat(stringUtils.isAnagram("abracadabra", "abracadabra"), is(true));
         assertThat(stringUtils.isAnagram("mary", "army"), is(true));
+    }
 
-
+    @Test
+    public void reverseWordsInStringReversesWordsInInput() {
+        assertThat(stringUtils.reverseWordsInString("abc def ghi"), is("ihg fed cba"));
+        assertThat(stringUtils.reverseWordsInString("abc"), is("cba"));
+        assertThat(stringUtils.reverseWordsInString("abcd efgh"), is("hgfe dcba"));
 
     }
 }

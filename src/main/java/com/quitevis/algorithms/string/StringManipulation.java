@@ -65,6 +65,34 @@ public class StringManipulation {
         }
 
         return hash1 == hash2;
-
     }
+
+    public String reverseWordsInString(String input) {
+        int right = input.length() - 1;
+        char[] charArray = input.toCharArray();
+        StringBuilder buffer = new StringBuilder();
+        StringBuilder ret = new StringBuilder();
+
+        while (right >= 0) {
+            if (charArray[right] == ' ') {
+                ret.append(buffer.toString());
+                ret.append(' ');
+                buffer.setLength(0);
+            }
+            else if (right == 0) {
+                buffer.append(charArray[right]);
+                ret.append(buffer.toString());
+                buffer.setLength(0);
+            }
+            else {
+                buffer.append(charArray[right]);
+            }
+
+
+            right--;
+        }
+
+        return ret.toString();
+    }
+
 }
