@@ -3,10 +3,7 @@ package com.quitevis.algorithms.binarytree;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Various binary tree algorithms
@@ -23,6 +20,80 @@ public class BinaryTree {
         return result;
     }
 
+    public String bfs(Node root) {
+        StringBuilder ret = new StringBuilder();
+        Queue<Node> queue = new ArrayDeque<>();
+
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            Node node = queue.remove();
+
+            ret.append(node.value);
+            ret.append(", ");
+
+            if (node.left != null) {
+                queue.add(node.left);
+            }
+
+            if (node.right != null) {
+                queue.add(node.right);
+            }
+        }
+
+        log.trace("BFS Path: {}", ret.toString().trim());
+
+        return ret.toString().trim();
+    }
+
+    /**
+     * 2-stack approach
+     */
+    public String zigzag(Node root) {
+        StringBuilder ret = new StringBuilder();
+
+        Stack<Node> currentLevel = new Stack<>();
+        Stack<Node> nextLevel = new Stack<>();
+
+        boolean ltr = false;
+
+        currentLevel.push(root);
+
+        while (!currentLevel.isEmpty()) {
+            Node node = currentLevel.pop();
+
+            ret.append(node.value);
+            ret.append(", ");
+
+            if (ltr) {
+                if (node.left != null) {
+                    nextLevel.add(node.left);
+                }
+                if (node.right != null) {
+                    nextLevel.add(node.right);
+                }
+            }
+            else {
+                if (node.right != null) {
+                    nextLevel.add(node.right);
+                }
+                if (node.left != null) {
+                    nextLevel.add(node.left);
+                }
+            }
+
+            if (currentLevel.isEmpty()) {
+                ltr = !ltr;
+
+                Stack<Node> temp = currentLevel;
+                currentLevel = nextLevel;
+                nextLevel = temp;
+            }
+        }
+
+        return ret.toString().trim();
+    }
+
     public List<Node> getPath(Node root, Node target) {
         List<Node> result = new ArrayList<>();
         getPath(root, target, result);
@@ -31,7 +102,7 @@ public class BinaryTree {
     }
 
     /**
-     * max(parent, max(left, right))
+     * Max is Math.max(parent, Math.max(max(left), max(right)))
      */
     public int getMax(Node root) {
         if (root == null) {
@@ -44,6 +115,10 @@ public class BinaryTree {
         return Math.max(root.value, Math.max(left, right));
     }
 
+
+    /**
+     * Height is 1 + max(height(left), height(right))
+     */
     public int getHeight(Node root) {
         if (root == null) {
             return 0;

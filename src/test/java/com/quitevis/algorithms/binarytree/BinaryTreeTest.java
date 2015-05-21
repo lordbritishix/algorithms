@@ -351,4 +351,156 @@ public class BinaryTreeTest {
         assertThat(path, is("[0, 1, 2, 3]"));
     }
 
+
+    @Test
+    public void bfsReturnsCorrectPath1() {
+        Node parent = new Node(0);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        Node node6 = new Node(6);
+
+        parent.left = node1;
+        parent.right = node2;
+
+        node1.left = node3;
+        node1.right = node4;
+
+        node2.left = node5;
+        node2.right = node6;
+
+        String path = tree.bfs(parent);
+
+        assertThat(path, is("0, 1, 2, 3, 4, 5, 6,"));
+    }
+
+    @Test
+    public void bfsReturnsCorrectPath2() {
+        Node parent = new Node(0);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        Node node6 = new Node(6);
+
+        parent.left = node1;
+        node1.left = node2;
+        node2.left = node3;
+        node3.left = node4;
+        node4.left = node5;
+        node5.left = node6;
+
+        String path = tree.bfs(parent);
+
+        assertThat(path, is("0, 1, 2, 3, 4, 5, 6,"));
+    }
+
+    @Test
+    public void bfsReturnsCorrectPath3() {
+        Node parent = new Node(0);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+
+        parent.left = node1;
+        parent.right = node4;
+
+        node1.left = node2;
+        node1.right = node3;
+
+        String path = tree.bfs(parent);
+
+        assertThat(path, is("0, 1, 4, 2, 3,"));
+    }
+
+    @Test
+    public void zigzagReturnsCorrectPath1() {
+        Node parent = new Node(0);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        Node node6 = new Node(6);
+        Node node7 = new Node(7);
+        Node node8 = new Node(8);
+        Node node9 = new Node(9);
+        Node node10 = new Node(10);
+        Node node11 = new Node(11);
+        Node node12 = new Node(12);
+        Node node13 = new Node(13);
+        Node node14 = new Node(14);
+
+
+        parent.left = node1;
+        parent.right = node2;
+
+        node1.left = node3;
+        node1.right = node4;
+
+        node2.left = node5;
+        node2.right = node6;
+
+        node3.left = node7;
+        node3.right = node8;
+
+        node4.left = node9;
+        node4.right = node10;
+
+        node5.left = node11;
+        node5.right = node12;
+
+        node6.left = node13;
+        node6.right = node14;
+
+        String path = tree.zigzag(parent);
+
+        assertThat(path, is("0, 1, 2, 6, 5, 4, 3, 7, 8, 9, 10, 11, 12, 13, 14,"));
+    }
+
+    @Test
+    public void zigzagReturnsCorrectPath2() {
+        Node parent = new Node(0);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+        Node node5 = new Node(5);
+        Node node6 = new Node(6);
+
+        parent.left = node1;
+        node1.left = node2;
+        node2.left = node3;
+        node3.left = node4;
+        node4.left = node5;
+        node5.left = node6;
+
+        String path = tree.zigzag(parent);
+
+        assertThat(path, is("0, 1, 2, 3, 4, 5, 6,"));
+    }
+
+    @Test
+    public void zigzagReturnsCorrectPath3() {
+        Node parent = new Node(0);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+
+        parent.left = node1;
+        parent.right = node4;
+
+        node1.left = node2;
+        node1.right = node3;
+
+        String path = tree.zigzag(parent);
+
+        assertThat(path, is("0, 1, 4, 3, 2,"));
+    }
+
 }
