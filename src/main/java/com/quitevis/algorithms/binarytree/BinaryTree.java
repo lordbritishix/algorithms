@@ -20,6 +20,43 @@ public class BinaryTree {
         return result;
     }
 
+    /**
+     * Checks if a binary tree is foldable.
+     * It is foldable if the left and right subtrees of the root are structure wise mirror image of each other
+     *
+     * e.g.
+     *        10
+     *       /  \
+     *     7     15
+     *      \    /
+     *      9  11
+     *
+     * foldable = isFoldable(left) && isFoldable(right)
+     */
+    public boolean isFoldable(Node root) {
+        if (root == null) {
+            return true;
+        }
+
+        return isFoldable(root.left, root.right);
+    }
+
+    private boolean isFoldable(Node left, Node right) {
+        //Base case #1: If this is true, this means this subtree is foldable and we've reached the leaf either the
+        //inner (left.right, right.left) or the outer (left.left, right.right) subtree
+        if ((left == null) && (right == null)) {
+            return true;
+        }
+
+        //Base case #2: If either one is missing, it is not foldable
+        if ((left == null) || (right == null)) {
+            return false;
+        }
+
+        //If both nodes exist, then check if the inner and the outer set of nodes are foldable
+        return isFoldable(left.left, right.right) && isFoldable(left.right, right.left);
+    }
+
     public String bfs(Node root) {
         StringBuilder ret = new StringBuilder();
         Queue<Node> queue = new ArrayDeque<>();
@@ -227,6 +264,8 @@ public class BinaryTree {
             getPathWithMaxSum(node.right, data, result, currentLevel);
         }
     }
+
+
 
     private int getSum(List<Node> nodes) {
         int sum = 0;

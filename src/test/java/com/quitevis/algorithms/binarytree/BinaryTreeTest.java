@@ -503,4 +503,45 @@ public class BinaryTreeTest {
         assertThat(path, is("0, 1, 4, 3, 2,"));
     }
 
+
+    @Test
+    public void isFoldableReturnsTrueIfTreeIsFoldable1() {
+        Node parent = new Node(0);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+
+        parent.left = node1;
+        parent.right = node2;
+
+        node1.left = node3;
+        node2.right = node4;
+
+        assertThat(tree.isFoldable(parent), is(true));
+    }
+
+    @Test
+    public void isFoldableReturnsTrueIfTreeIsFoldable2() {
+        Node parent = new Node(0);
+        assertThat(tree.isFoldable(parent), is(true));
+    }
+
+
+    @Test
+    public void isFoldableReturnsFalseIfTreeIsNotFoldable() {
+        Node parent = new Node(0);
+        Node node1 = new Node(1);
+        Node node2 = new Node(2);
+        Node node3 = new Node(3);
+        Node node4 = new Node(4);
+
+        parent.left = node1;
+        node1.left = node2;
+        node1.right = node3;
+        node3.right = node4;
+
+        assertThat(tree.isFoldable(parent), is(false));
+    }
+
 }
