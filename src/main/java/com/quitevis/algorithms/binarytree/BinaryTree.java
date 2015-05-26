@@ -3,7 +3,13 @@ package com.quitevis.algorithms.binarytree;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
+import java.util.Stack;
+import java.util.Map;
+import java.util.HashMap;
 
 /**
  * Various binary tree algorithms
@@ -213,7 +219,7 @@ public class BinaryTree {
         boolean retRight = getPath(root.right, target, path);
 
         //If found, always return true and add to path
-        if (retLeft || retRight ) {
+        if (retLeft || retRight) {
             log.trace("Adding to path: {}", root.value);
 
             path.add(root);

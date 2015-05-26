@@ -1,12 +1,14 @@
 package com.quitevis.algorithms.string;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class StringManipulation {
     public boolean hasUniqueCharacters(String input) {
         Set<Character> lookup = new HashSet<>();
+        char[] charArray = input.toCharArray();
 
-        for (Character c : input.toCharArray()) {
+        for (char c : charArray) {
             if (!lookup.add(c)) {
                 return false;
             }
@@ -56,11 +58,11 @@ public class StringManipulation {
         int hash1 = 0;
         int hash2 = 0;
 
-        for (Character c : input1CharArray) {
+        for (char c : input1CharArray) {
             hash1 ^= c;
         }
 
-        for (Character c : input2CharArray) {
+        for (char c : input2CharArray) {
             hash2 ^= c;
         }
 
