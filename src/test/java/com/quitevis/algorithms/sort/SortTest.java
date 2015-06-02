@@ -24,13 +24,6 @@ public class SortTest {
     }
 
     @Test
-    public void test() {
-        QuickSort s = new QuickSort();
-        int[] input = new int[]{0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1};
-        s.sort(input);
-    }
-
-    @Test
     public void testSortWithRandomUnsortedElements() {
         for (SortBase sort : sorters) {
             int[] input = new int[]{5, 2, 55, 23, 21, 65, 1, 0};

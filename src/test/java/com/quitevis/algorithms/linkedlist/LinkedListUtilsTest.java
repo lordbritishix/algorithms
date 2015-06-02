@@ -115,4 +115,26 @@ public class LinkedListUtilsTest {
 
         assertThat(linkedListUtils.getString(ret), is("0, 1, 2, 6, 7, 8,"));
     }
+
+    @Test
+    public void mergeSortedListsMergesTwoSortedListsRecursive1() {
+        Node<Integer> m1 = new Node<>(1);
+        Node<Integer> m2 = new Node<>(3);
+        Node<Integer> m3 = new Node<>(5);
+
+        m1.next = m2;
+        m2.next = m3;
+
+        Node<Integer> n1 = new Node<>(2);
+        Node<Integer> n2 = new Node<>(4);
+        Node<Integer> n3 = new Node<>(6);
+
+        n1.next = n2;
+        n2.next = n3;
+
+        Node<Integer> ret = linkedListUtils.mergeSortedListsRecursive(m1, n1, new IntegerComparator());
+
+        assertThat(linkedListUtils.getString(ret), is("1, 2, 3, 4, 5, 6,"));
+    }
+
 }

@@ -70,6 +70,24 @@ public class LinkedListUtils<T> {
         return newHead;
     }
 
+    public Node mergeSortedListsRecursive(Node m, Node n, Comparator<Node<T>> comparator) {
+        if (m == null) {
+            return n;
+        }
+
+        if (n == null) {
+            return m;
+        }
+
+        if (comparator.compare(m, n) <= 0) {
+            m.next = mergeSortedListsRecursive(m.next, n, comparator);
+            return m;
+        }
+        else {
+            n.next = mergeSortedListsRecursive(n.next, m, comparator);
+            return n;
+        }
+    }
 
     public String getString(Node<T> node) {
         StringBuffer ret = new StringBuffer();

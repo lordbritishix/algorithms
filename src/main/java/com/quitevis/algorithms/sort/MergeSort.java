@@ -37,10 +37,12 @@ public class MergeSort extends MergeSortBase {
         //recurse first half of the subarray
         sort(data, aux, lo, mid);
 
-        log.trace("#right --> lo: {}       mid: {}", mid + 1, hi);
+        log.trace("#right --> mid: {}       hi: {}", mid + 1, hi);
 
         //recurse second half of the subarray
         sort(data, aux, mid + 1, hi);
+
+        log.trace("Sorting data for lo {} hi {}", lo, hi);
 
         //merge first and second half
         merge(data, aux, lo, mid, hi);
