@@ -1,5 +1,8 @@
 package com.quitevis.algorithms.string;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,6 +37,14 @@ public class StringManipulation {
         return String.copyValueOf(charArray);
     }
 
+    public String reverseRecursive(String input) {
+        if (input.length() <= 1) {
+            return input;
+        }
+
+        return reverseRecursive(input.substring(1)) + input.charAt(0);
+    }
+
     public boolean isPalindrome(String input) {
         int first = 0;
         int last = input.length() - 1;
@@ -50,6 +61,20 @@ public class StringManipulation {
 
         return true;
     }
+
+    public boolean isPalindromeRecursive(String input) {
+        if (input.length() <= 1) {
+            return true;
+        }
+
+        if (input.charAt(0) != input.charAt(input.length() - 1)) {
+            return false;
+        }
+        else {
+            return isPalindromeRecursive(input.substring(1, input.length() - 1));
+        }
+    }
+
 
     public boolean isAnagram(String input1, String input2) {
         char[] input1CharArray = input1.toCharArray();

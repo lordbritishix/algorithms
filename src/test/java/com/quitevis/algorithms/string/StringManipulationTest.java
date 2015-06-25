@@ -34,6 +34,14 @@ public class StringManipulationTest {
     }
 
     @Test
+    public void reverseRecursiveReturnsReversedString() {
+        assertThat(stringUtils.reverseRecursive("abc"), is("cba"));
+        assertThat(stringUtils.reverseRecursive("a"), is("a"));
+        assertThat(stringUtils.reverseRecursive(""), is(""));
+        assertThat(stringUtils.reverseRecursive("abba"), is("abba"));
+    }
+
+    @Test
     public void isPalindromeReturnsCorrectResult() {
         assertThat(stringUtils.isPalindrome("aba"), is(true));
         assertThat(stringUtils.isPalindrome("aa"), is(true));
@@ -42,6 +50,17 @@ public class StringManipulationTest {
         assertThat(stringUtils.isPalindrome("abbc"), is(false));
         assertThat(stringUtils.isPalindrome("ab"), is(false));
     }
+
+    @Test
+    public void isPalindromeRecursiveReturnsCorrectResult() {
+        assertThat(stringUtils.isPalindromeRecursive("aba"), is(true));
+        assertThat(stringUtils.isPalindromeRecursive("aa"), is(true));
+        assertThat(stringUtils.isPalindromeRecursive("a"), is(true));
+        assertThat(stringUtils.isPalindromeRecursive("abba"), is(true));
+        assertThat(stringUtils.isPalindromeRecursive("abbc"), is(false));
+        assertThat(stringUtils.isPalindromeRecursive("ab"), is(false));
+    }
+
 
     @Test
     public void isAnagramReturnsCorrectResult() {

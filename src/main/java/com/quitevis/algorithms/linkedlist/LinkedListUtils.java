@@ -70,6 +70,21 @@ public class LinkedListUtils<T> {
         return newHead;
     }
 
+    /**
+     * Reverses the linked list recursively and returns the new head
+     */
+    public Node reverseList(Node current, Node newNext) {
+        Node next = current.next;
+
+        if (current.next == null) {
+            return current;
+        }
+
+        current.next = newNext;
+
+        return reverseList(next, current);
+    }
+
     public Node mergeSortedListsRecursive(Node m, Node n, Comparator<Node<T>> comparator) {
         if (m == null) {
             return n;

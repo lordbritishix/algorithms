@@ -137,4 +137,32 @@ public class LinkedListUtilsTest {
         assertThat(linkedListUtils.getString(ret), is("1, 2, 3, 4, 5, 6,"));
     }
 
+    @Test
+    public void reverseListReversesTheList1() {
+        Node<Integer> n1 = new Node<>(1);
+        Node<Integer> n2 = new Node<>(2);
+        Node<Integer> n3 = new Node<>(3);
+        Node<Integer> n4 = new Node<>(4);
+
+        n1.next = n2;
+        n2.next = n3;
+        n3.next = n4;
+
+        Node<Integer> newHead = linkedListUtils.reverseList(n1, null);
+        assertThat(linkedListUtils.getString(newHead), is("4, 3, 2, 1,"));
+    }
+
+    @Test
+    public void reverseListReversesTheList2() {
+        Node<Integer> n1 = new Node<>(1);
+
+        Node<Integer> newHead = linkedListUtils.reverseList(n1, null);
+        assertThat(linkedListUtils.getString(newHead), is("1,"));
+    }
+
+    @Test
+    public void reverseListReversesTheList3() {
+        Node<Integer> newHead = linkedListUtils.reverseList(null, null);
+        assertThat(linkedListUtils.getString(newHead), is(""));
+    }
 }
