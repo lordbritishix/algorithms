@@ -1,11 +1,11 @@
 package com.quitevis.algorithms.linkedlist;
 
+import java.util.Comparator;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Comparator;
-
 import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -148,7 +148,7 @@ public class LinkedListUtilsTest {
         n2.next = n3;
         n3.next = n4;
 
-        Node<Integer> newHead = linkedListUtils.reverseList(n1, null);
+        Node<Integer> newHead = linkedListUtils.recursiveReverseList(n1, null);
         assertThat(linkedListUtils.getString(newHead), is("4, 3, 2, 1,"));
     }
 
@@ -156,13 +156,13 @@ public class LinkedListUtilsTest {
     public void reverseListReversesTheList2() {
         Node<Integer> n1 = new Node<>(1);
 
-        Node<Integer> newHead = linkedListUtils.reverseList(n1, null);
+        Node<Integer> newHead = linkedListUtils.recursiveReverseList(n1, null);
         assertThat(linkedListUtils.getString(newHead), is("1,"));
     }
 
     @Test
     public void reverseListReversesTheList3() {
-        Node<Integer> newHead = linkedListUtils.reverseList(null, null);
-        assertThat(linkedListUtils.getString(newHead), is(""));
+        Node<Integer> newHead = linkedListUtils.recursiveReverseList(null, null);
+        assertEquals(null, newHead);
     }
 }
